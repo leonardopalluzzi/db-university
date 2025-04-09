@@ -53,21 +53,12 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - email: VARCHAR(50) - NOTNULL - UNIQUE
 
 
-## Table: `course_teacher` //pivot table 
-
-**columns**
-- teachers_id: (BIGINT) - foreign_key - NOTNULL
-- courses_id: (BIGINT) - foreign_key - NOTNULL
-
-
-
 
 ## Table: `exam_calls` //many to many with students
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
 - courses_id: (BIGINT) - foreign_key - NOTNULL
-- vote: TINYINY(30) - NULL
 
 
 
@@ -76,6 +67,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 **columns**
 - exam_calls_id: (BIGINT) - foreign_key - NOTNULL
 - students_id: (BIGINT) - foreign_key - NOTNULL
+- vote: TINYINY(30) - NULL
 
 
 
