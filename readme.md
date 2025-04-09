@@ -10,7 +10,7 @@ ogni Studente è iscritto ad un solo Corso di Laurea;
 ogni Studente può iscriversi a più appelli di Esame;
 per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente. Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi di stabilirne le relazioni. Infine, andiamo a definire le colonne e i tipi di dato di ogni tabella.
 
-## tables: macro_areas, degree_courses, courses, teachers, exam_calls, students, votes
+## tables: macro_areas, degree_courses, courses, teachers, exam_calls, students
 
 
 ## Table: `macro_areas` //indipendent
@@ -18,6 +18,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
 - name: VARCHAR(200) - NOTNULL
+- description: TEXT(1200) - NULL
 
 
 
@@ -27,6 +28,8 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
 - macro_areas_id: (BIGINT) - foreign_key - NOTNULL
 - name: VARCHAR(200) - NOTNULL
+- description: TEXT(1200) - NULL
+- duration: TINYINT - NOTNULL
 
 
 
@@ -37,6 +40,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - students_id: (BIGINT) - foreign_key - NOTNULL
 - degree_courses_id: (BIGINT) - foreign_key - NOTNULL
 - name: VARCHAR(100) - NOTNULL
+- cfu: TINYINY - NOTNULL
 
 
 
@@ -63,6 +67,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
 - courses_id: (BIGINT) - foreign_key - NOTNULL
+- vote: TINYINY(30) - NULL
 
 
 
@@ -82,13 +87,3 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - full_name: VARCHAR(20) - NOTNULL
 - email: VARCHAR(50) - NOTNULL - UNIQUE
 - freshman: SMALLINT(6) - NOTNULL - UNIQUE
-
-
-
-
-## Table: `votes`
-
-**columns**
-- id: (BIGINT) - primary_key - auto_increment - NOTNULL
-- exam_calls_id: (BIGINT) - foreign_key - NOTNULL
-- vote: TINYINT(30) - NULL
