@@ -13,47 +13,81 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 ## tables: macro_areas, degree_courses, courses, teachers, exam_calls, students, votes
 
 
-## Table: ``
+## Table: `macro_areas`
 
 **columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- name: VARCHAR(200) - NOTNULL
 
 
 
-## Table: ``
-
-**columns**
-
-
-
-
-## Table: ``
+## Table: `degree_courses`
 
 **columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- macro_areas_id: (BIGINT) - foreign_key - NOTNULL
+- name: VARCHAR(200) - NOTNULL
 
 
 
-
-## Table: ``
-
-**columns**
-
-
-
-
-## Table: ``
+## Table: `courses` //many to many with teachers
 
 **columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- students_id: (BIGINT) - foreign_key - NOTNULL
+- degree_courses_id: (BIGINT) - foreign_key - NOTNULL
+- name: VARCHAR(100) - NOTNULL
 
 
 
 
-## Table: ``
-
-**columns**
-
-
-
-
-## Table: ``
+## Table: `teachers` //many to many with courses
 
 **columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- full_name:
+- email:
+
+
+## Table: `course_teacher` //pivot table 
+
+**columns**
+- teachers_id: (BIGINT) - foreign_key - NOTNULL
+- courses_id: (BIGINT) - foreign_key - NOTNULL
+
+
+
+
+## Table: `exam_calls` //many to many with students
+
+**columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- courses_id: (BIGINT) - foreign_key - NOTNULL
+
+
+
+## Table: `exam_call_student` //pivot table 
+
+**columns**
+- exam_calls_id: (BIGINT) - foreign_key - NOTNULL
+- students_id: (BIGINT) - foreign_key - NOTNULL
+
+
+
+## Table: `students`
+
+**columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- name:
+- email: 
+- freshman: 
+
+
+
+
+## Table: `votes`
+
+**columns**
+- id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- studens_id: (BIGINT) - foreign_key - NOTNULL
+- vote: TINYINT(30) - NULL
