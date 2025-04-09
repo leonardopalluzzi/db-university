@@ -63,11 +63,10 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
 - courses_id: (BIGINT) - foreign_key - NOTNULL
-- votes_id: (BIGINT) - foreign_key - NOTNULL
 
 
 
-## Table: `exam_call_student` //pivot table 
+## Table: `exam_call_student` //pivot table   
 
 **columns**
 - exam_calls_id: (BIGINT) - foreign_key - NOTNULL
@@ -79,6 +78,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- degree_courses_id: (BIGINT) - foreign_key - NOTNULL
 - full_name: VARCHAR(20) - NOTNULL
 - email: VARCHAR(50) - NOTNULL - UNIQUE
 - freshman: SMALLINT(6) - NOTNULL - UNIQUE
@@ -90,4 +90,5 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
+- exam_calls_id: (BIGINT) - foreign_key - NOTNULL
 - vote: TINYINT(30) - NULL
