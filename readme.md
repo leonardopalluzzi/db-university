@@ -13,7 +13,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 ## tables: macro_areas, degree_courses, courses, teachers, exam_calls, students, votes
 
 
-## Table: `macro_areas`
+## Table: `macro_areas` //indipendent
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
@@ -41,7 +41,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 
 
 
-## Table: `teachers` //many to many with courses
+## Table: `teachers` //many to many with courses //indipendent
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
@@ -75,7 +75,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 
 
 
-## Table: `students`
+## Table: `students` //indipendent
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
