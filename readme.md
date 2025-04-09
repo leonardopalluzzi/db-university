@@ -75,7 +75,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 
 
 
-## Table: `students` //indipendent
+## Table: `students` //indipendent 
 
 **columns**
 - id: (BIGINT) - primary_key - auto_increment - NOTNULL
